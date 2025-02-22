@@ -1,5 +1,7 @@
-# Roxiler Mern Coding Challenge 
-This was a coding challenge given by Roxiler Systems for a Mern Stack Intern role. Based on the instructions and tasks given in the challenge, I have implemented all the functionalities of the backend and frontend 
+# MERN Stack Coding Challenge
+
+This repository contains the implementation of a MERN (MongoDB, Express.js, React.js, Node.js) stack application that fulfills the requirements of the coding challenge. The application fetches data from a third-party API, processes it, and provides various APIs to interact with the data. The frontend displays the data in a table and visualizes it using charts.
+
 
 # Screenshots
 
@@ -33,6 +35,88 @@ This was a coding challenge given by Roxiler Systems for a Mern Stack Intern rol
 ### Bar chart of Jun
 ![Screenshot 2023-11-14 210121](https://github.com/iompawar/roxiler-mern-coding-challenge/assets/88156970/0615630b-5abd-4edf-9513-29df467f5c15)
 
+## Backend Task
+
+### Data Source
+- **Third Party API URL**: [https://s3.amazonaws.com/roxiler.com/product_transaction.json](https://s3.amazonaws.com/roxiler.com/product_transaction.json)
+- **Request Method**: GET
+- **Response Format**: JSON
+
+### APIs
+
+1. **Initialize Database**
+   - **Endpoint**: `GET /api/initialize-database`
+   - **Description**: Fetches data from the third-party API and initializes the database with seed data.
+   - **Response**: Success message with the number of records inserted.
+
+2. **List Transactions**
+   - **Endpoint**: `GET /api/transactions`
+   - **Query Parameters**:
+     - `month`: Month to filter transactions (e.g., "January", "February", etc.).
+     - `search`: Search text to match against product title, description, or price.
+     - `page`: Page number for pagination (default: 1).
+     - `perPage`: Number of items per page (default: 10).
+   - **Description**: Returns a paginated list of transactions filtered by month and search text.
+   - **Response**: List of transactions with pagination details.
+
+3. **Statistics**
+   - **Endpoint**: `GET /api/statistics`
+   - **Query Parameters**:
+     - `month`: Month to filter statistics (e.g., "January", "February", etc.).
+   - **Description**: Returns total sale amount, total sold items, and total not sold items for the selected month.
+   - **Response**: JSON object with statistics.
+
+4. **Bar Chart Data**
+   - **Endpoint**: `GET /api/bar-chart`
+   - **Query Parameters**:
+     - `month`: Month to filter bar chart data (e.g., "January", "February", etc.).
+   - **Description**: Returns the number of items in different price ranges for the selected month.
+   - **Response**: JSON object with price ranges and item counts.
+
+5. **Pie Chart Data**
+   - **Endpoint**: `GET /api/pie-chart`
+   - **Query Parameters**:
+     - `month`: Month to filter pie chart data (e.g., "January", "February", etc.).
+   - **Description**: Returns the number of items in each category for the selected month.
+   - **Response**: JSON object with categories and item counts.
+
+6. **Combined Data**
+   - **Endpoint**: `GET /api/combined-data`
+   - **Query Parameters**:
+     - `month`: Month to filter combined data (e.g., "January", "February", etc.).
+   - **Description**: Combines the responses from the statistics, bar chart, and pie chart APIs.
+   - **Response**: JSON object with combined data.
+
+## Frontend Task
+
+### Features
+
+1. **Transactions Table**
+   - Displays a list of transactions for the selected month.
+   - Includes a dropdown to select the month (default: March).
+   - Supports search functionality to filter transactions by title, description, or price.
+   - Implements pagination with "Next" and "Previous" buttons.
+
+2. **Transactions Statistics**
+   - Displays the total sale amount, total sold items, and total not sold items for the selected month.
+
+3. **Transactions Bar Chart**
+   - Visualizes the number of items in different price ranges for the selected month.
+
+4. **Transactions Pie Chart**
+   - Visualizes the number of items in each category for the selected month.
+
+### Mockups
+
+The frontend follows the provided mockups but allows for custom design changes to improve the look and feel.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- MongoDB
+- React.js
 
 
 
